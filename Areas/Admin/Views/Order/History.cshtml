@@ -1,0 +1,121 @@
+﻿@model PaginatedList<Order>
+@{
+    ViewData["Title"] = "History";
+}
+<div class="container-fluid">
+    <!---------------------------------------------[Main Content Start]---------------------------------------------->
+    <div class="shadow shadow-primary shadow-intensity-lg p-3">
+        <form method="GET" asp-area="admin" asp-controller="order" asp-action="history">
+            <div class="table-settings mb-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col col-md-6 col-lg-3 col-xl-4">
+                        <div class="input-group me-2 me-lg-3">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="search" name="search" value="@ViewBag.search" class="form-control" placeholder="Search Order">
+                            <input class="d-none" type="submit" />
+                        </div>
+                    </div>
+                    @{
+                        RowSizeViewModel rowSizeViewModel = new RowSizeViewModel("order", "history", ViewBag.PageSize);
+                        <partial name="Partial/Table/RowSize" model="rowSizeViewModel" />
+                    }
+                </div>
+            </div>
+            @if (Model.Any())
+            {
+                <div class="card card-body table-wrapper table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead class="table-dark border-3 border-dark">
+                            <tr>
+                                <th class="col">S.N.</th>
+                                <th class="col">Medicine</th>
+                                <th class="col">Medicine Image</th>
+                                <th class="col">User</th>
+                                <th class="col">Order</th>
+                                <th class="col">Quantity</th>
+                                <th class="col">Amount</th>
+                                <th class="col">Prescription</th>
+                                <th class="col">Status</th>
+                                <th class="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-white border-dark">
+                            @{
+                                var count = 0;
+                                var sn = ViewBag.PageSize * Model.PageIndex - ViewBag.PageSize;
+                                @foreach (var item in Model)
+                                {
+                                    sn++;
+                                    count++;
+                                    <tr class="align-middle">
+                                        <td>@sn</td>
+                                        <td>@item.Stock.Medicine.MedicineName</td>
+                                        <td><img src="~/uploads/medicine/@item.Stock.Medicine.MedicineImageLink" height="100" width="100"></td>
+                                        <td>@item.ApplicationUser.UserName</td>
+                                        <td>@item.OrderDate</td>
+                                        <td>@item.OrderQuantity</td>
+                                        <td>@item.Amount</td>
+                                        <td><img src="~/uploads/prescription/@item.Prescription" height="100" width="100"></td>
+                                        <td>
+                                            @if (item.OrderStatus == OrderStatus.Pending)
+                                            {
+                                                <span class="badge bg-primary">Pending</span>
+                                            }
+                                            @if (item.OrderStatus == OrderStatus.OnTheWay)
+                                            {
+                                                <span class="badge bg-secondary">On The Way</span>
+                                            }
+                                            @if (item.OrderStatus == OrderStatus.Delivered)
+                                            {
+                                                <span class="badge bg-success">Delivered</span>
+                                            }
+                                            @if (item.OrderStatus == OrderStatus.Rejected)
+                                            {
+                                                <span class="badge bg-danger">Rejected</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn text-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="icon icon-sm">
+                                                        <i class="fa-solid fa-gear"></i>
+                                                    </span>
+                                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    @if (item.OrderStatus == OrderStatus.OnTheWay)
+                                                    {
+                                                        <a class="dropdown-item" asp-controller="order" asp-action="delivered" asp-route-id="@item.OrderId" asp-route-search="@ViewBag.search" asp-route-pageindex="@Model.PageIndex" asp-route-pagesize="@ViewBag.PageSize">Delivered</a>
+                                                    }
+                                                    <a class="dropdown-item" asp-controller="order" asp-action="seeprescription" asp-route-id="@item.OrderId">See Prescription</a>
+                                                    @if (item.OrderStatus == OrderStatus.Delivered || item.OrderStatus == OrderStatus.Rejected)
+                                                    {
+                                                        <a class="dropdown-item text-danger" asp-controller="order" asp-action="delete" asp-route-id="@item.OrderId" asp-route-sn="@sn" asp-route-search="@ViewBag.search" asp-route-pageindex="@Model.PageIndex" asp-route-pagesize="@ViewBag.PageSize">Remove</a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    @{
+                        PaginationViewModel paginationViewModel = new PaginationViewModel("order", "history", Model.HasPreviousPage, Model.HasNextPage, Model.PageIndex, ViewBag.Pagesize, Model.TotalPages, ViewBag.Search, Model.TotalItem, count);
+                        <partial name="Partial/Table/TablePagination" model="paginationViewModel" />
+                    }
+                </div>
+            }
+            else
+            {
+                <p style="text-align:center">No Order Found.</p>
+            }
+        </form>
+    </div>
+    <!----------------------------------------------[Main Content End]----------------------------------------------->
+    <br>
+    <partial name="Partial/Component/Footer" />
+</div>
+

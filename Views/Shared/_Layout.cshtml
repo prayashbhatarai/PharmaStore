@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-----------------------------------[Favicon]----------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon/favicon-32x32.png">
+    <link rel="manifest" href="~/favicon/site.webmanifest">
+    <!------------------------------------------------------------------------------------->
+    <!------------------------------[Client CSS]--------------------------------->
+    <link rel="stylesheet" href="~/css/client.css" />
+
+    <!-----------------------------[Fontawesome CSS]-------------------------------->
+    <link rel="stylesheet" href="~/lib/fontawesome-pro/css/all.css">
+
+    <!-------------------------------[toastr CSS]----------------------------------->
+    <link rel="stylesheet" href="~/lib/toastr/toastr.css">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <title>@ViewData["Title"] - PharmaStore</title>
+</head>
+
+<body>
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    <!-----------------------------[Jquery]-------------------------------->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!----------------------------[toastr JS]------------------------------>
+    <script src="~/lib/toastr/toastr.js"></script>
+
+    <partial name="Components/TopBar" />
+    <partial name="Components/NavBar" />
+    <!-----------------------[Main Section Start]-------------------------->
+    @RenderBody()
+    <!------------------------[Main Section End]--------------------------->
+    <partial name="Components/Toastr/Notification" />
+    <partial name="Components/Footer" />
+
+    <!--------------------------[Bootstrap JS]----------------------------->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-------------------------[Fontawesome JS]---------------------------->
+    <script src="~/lib/fontawesome-pro/js/all.js"></script>
+
+    <!---------------------------[Custom JS]------------------------------->
+    <script src="~/lib/easing/easing.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/client.js"></script>
+    <script src="~/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

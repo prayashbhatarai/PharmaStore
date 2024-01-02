@@ -1,0 +1,101 @@
+﻿@model LoginDto
+
+@{
+    Layout = "_BasicLayout";
+    var returnUrl = ViewData["ReturnUrl"];
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+        border-radius: 4px;
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        border-radius: 4px;
+        padding: 10px 25px;
+    }
+</style>
+
+<script>
+    /*
+    +---------------------------------------------+
+    | This function shows password in Login Form  |
+    +---------------------------------------------+
+    */
+    function showPassword() {
+        let x = document.getElementById("password");
+        if (x.type == "password") {
+            x.type = "text";
+        }
+        else {
+            x.type = "password";
+        }
+    }
+</script>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="card shadow-lg p-3 mb-5 bg-dark rounded">
+                <div class="card-body">
+                    <div class="mb-3 mx-auto container d-flex justify-content-center">
+                        <img src="~/img/PharmaStore.svg" class="img-fluid" alt="Pharma Store">
+                    </div>
+                    <form asp-controller="account" asp-action="login" asp-route-returnUrl="@returnUrl">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                            <div class="input-group md-3">
+                                <span class="input-group-text border-2 border-black bg-dark text-light"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" asp-for="Username" class="form-control" id="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <br />
+                        <div class="mb-3">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="input-group md-3">
+                                <span class="input-group-text border-2 border-black bg-dark text-white"><i class="fa-solid fa-key"></i></span>
+                                <input type="password" asp-for="Password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" onclick="showPassword()">
+                                    <label class="form-check-label text-light small" for="rememberme">
+                                        Show Password
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="text-light"/>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" asp-for="RememberMe" class="form-check-input" id="rememberme">
+                                <label class="form-check-label text-light fw-bold" for="rememberme">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary fw-bold">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

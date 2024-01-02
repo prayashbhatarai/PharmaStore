@@ -1,0 +1,34 @@
+﻿@using PharmaStore.Data.Entities;
+@model List<Order>
+@{
+    ViewData["Title"] = "My Orders";
+}
+<div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">My Orders</span></h2>
+</div>
+<hr />
+<div class="table-responsive mb-5">
+    <table class="table table-bordered text-center mb-0">
+        <thead class="bg-secondary text-dark">
+            <tr>
+                <th>Medicine</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Total</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle">
+            @foreach(Order item in Model)
+            {
+             <tr>
+                <td class="align-middle"><img src="~/uploads/medicine/@item.Stock.Medicine.MedicineImageLink" alt="" style="width: 50px;">@item.Stock.Medicine.MedicineName</td>
+                <td class="align-middle">@item.OrderQuantity</td>
+                <td class="align-middle">@item.Stock.StockRate</td>
+                <td class="align-middle">@item.Amount</td>
+                <td class="align-middle">@item.OrderStatus</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

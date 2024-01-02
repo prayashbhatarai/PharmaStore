@@ -1,0 +1,113 @@
+﻿@using PharmaStore.Areas.Admin.Models.ViewModel;
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<style>
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .widget-title {
+        font-size: 1.2rem;
+    }
+
+    .widget-card {
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container-fluid">
+    <!---------------------------------------------[Main Content Start]---------------------------------------------->
+    <h3>Dashboard</h3>
+    <hr />
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card widget-card">
+                <div class="card-body">
+                    <h5 class="widget-title">Medicine</h5>
+                    <p class="card-text">@Model.NumberOfMedicine</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card widget-card">
+                <div class="card-body">
+                    <h5 class="widget-title">MedicineCategory</h5>
+                    <p class="card-text">@Model.NumberOfMedicineCategory</p>
+                </div>
+            </div>
+        </div>
+                <div class="col-lg-3">
+            <div class="card widget-card">
+                <div class="card-body">
+                    <h5 class="widget-title">Order</h5>
+                    <p class="card-text">@Model.NumberOfOrder</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card widget-card">
+                <div class="card-body">
+                    <h5 class="widget-title">Stocks</h5>
+                    <p class="card-text">@Model.NumberOfStock</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------[Main Content End]----------------------------------------------->
+    <h4 style="text-align:center">Recent Orders</h4>
+    <hr />
+    <div class="card card-body table-wrapper table-responsive">
+        <table class="table table-sm table-hover">
+            <thead class="table-dark border-3 border-dark">
+                <tr>
+                    <th class="col">S.N.</th>
+                    <th class="col">Medicine</th>
+                    <th class="col">User</th>
+                    <th class="col">Order</th>
+                    <th class="col">Quantity</th>
+                    <th class="col">Amount</th>
+                    <th class="col">Status</th>
+                </tr>
+            </thead>
+            <tbody class="table-white border-dark">
+                @{
+                    var count = 0;
+                    @foreach (var item in ViewBag.RecentOrder)
+                    {
+                        count++;
+                        <tr class="align-middle">
+                            <td>@count</td>
+                            <td>@item.Stock.Medicine.MedicineName</td>
+                            <td>@item.ApplicationUser.UserName</td>
+                            <td>@item.OrderDate</td>
+                            <td>@item.OrderQuantity</td>
+                            <td>@item.Amount</td>
+                            <td>
+                                @if (item.OrderStatus == OrderStatus.Pending)
+                                {
+                                    <span class="badge bg-primary">Pending</span>
+                                }
+                                @if (item.OrderStatus == OrderStatus.OnTheWay)
+                                {
+                                    <span class="badge bg-secondary">On The Way</span>
+                                }
+                                @if (item.OrderStatus == OrderStatus.Delivered)
+                                {
+                                    <span class="badge bg-success">Delivered</span>
+                                }
+                                @if (item.OrderStatus == OrderStatus.Rejected)
+                                {
+                                    <span class="badge bg-danger">Rejected</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,137 @@
+﻿<!-----------------------------------------[Side Navigation Bar Start]------------------------------------------>
+<!--Offcanvas-->
+<div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1" id="sidebar">
+    <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+            <ul class="navbar-nav">
+                <li>
+                    <div class="text-muted small fw-bold text-uppercase px-3 my-4">
+                        Home
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="dashboard" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Dashboard" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-desktop"></i>
+                        </span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="text-muted small fw-bold text-uppercase px-3 my-4">
+                        Medicine Setup
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="manufacturer" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Manufacturer" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-industry"></i>
+                        </span>
+                        <span>Manufacturer</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="medicinecategory" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Medicine Category" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-pills"></i>
+                        </span>
+                        <span>Medicine Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="medicine" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Medicine" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-tablets"></i>
+                        </span>
+                        <span>Medicine</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="text-muted small fw-bold text-uppercase px-3 my-4">
+                        Stock Setup
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="supplier" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Supplier" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-truck-field"></i>
+                        </span>
+                        <span>Supplier</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="stock" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Stock" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </span>
+                        <span>Stock</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="text-muted small fw-bold text-uppercase px-3 my-4">
+                        Order
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="order" asp-action="index" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Order" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </span>
+                        <span>Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="order" asp-action="history" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "History" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-sharp fa-solid fa-clock-rotate-left"></i>
+                        </span>
+                        <span>Order History</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="text-muted small fw-bold text-uppercase px-3 my-4">
+                        Report
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="admin" asp-controller="report" asp-action="expiryreport" class="nav-link px-3 @(ViewData["Title"]?.ToString() == "Expiry Report" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")">
+                        <span class="me-2">
+                            <i class="fa-solid fa-page"></i>
+                        </span>
+                        <span>Expiry Report</span>
+                    </a>
+                </li>
+
+                @* <li>
+                <a class="nav-link px-3 sidebar-link @(ViewData["Title"]?.ToString() == "Medicine" ? "btn-outline-warning text-black active" : "btn-outline-secondary text-white")" data-bs-toggle="collapse" href="#medicine">
+                <span class="me-2">
+                <i class="fa-solid fa-tablets"></i>
+                </span>
+                <span>Medicine</span>
+                <span class="ms-auto">
+                <span class="right-icon">
+                <i class="fa-solid fa-angle-down"></i>
+                </span>
+                </span>
+                </a>
+                <div class="collapse" id="medicine">
+                <ul class="navbar-nav ps-3 bg-black">
+                <li>
+                <a asp-area="admin" asp-controller="medicine" asp-action="add" class="nav-link px-3 text-white">
+                <span class="me-2"><i class="fa-solid fa-circle-plus"></i></span>
+                <span>Add Medicine</span>
+                </a>
+                <a asp-area="admin" asp-controller="medicine" asp-action="index" class="nav-link px-3 text-white">
+                <span class="me-2"><i class="fa-solid fa-sliders"></i></span>
+                <span>Manage Medicine</span>
+                </a>
+                </li>
+                </ul>
+                </div>
+                </li>*@
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--Offcanvas-->
+<!------------------------------------------[Side Navigation Bar End]-------------------------------------------->

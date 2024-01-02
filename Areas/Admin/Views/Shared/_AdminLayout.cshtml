@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-----------------------------------[Favicon]----------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon/favicon-32x32.png">
+    <link rel="manifest" href="~/favicon/site.webmanifest">
+    <!------------------------------------------------------------------------------------->
+
+    <!------------------------------[Bootstrap CSS]--------------------------------->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-----------------------------[Fontawesome CSS]-------------------------------->
+    <link rel="stylesheet" href="~/lib/fontawesome-pro/css/all.css">
+
+    <!-------------------------------[toastr CSS]----------------------------------->
+    <link rel="stylesheet" href="~/lib/toastr/toastr.css">
+
+
+    <!-------------------------------[Custom CSS]----------------------------------->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dasboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
+
+    <title>@ViewData["Title"] - PharmaStore [Admin]</title>
+</head>
+
+<body>
+    <!-----------------------------[Jquery]-------------------------------->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   
+    <!----------------------------[toastr JS]------------------------------>
+    <script src="~/lib/toastr/toastr.js"></script>
+
+
+    <partial name="Partial/Component/TopNavBar" />
+    
+    <partial name="Partial/Component/SideNavBar" />
+    
+    <!-----------------------[Main Section Start]-------------------------->
+    <main class="mt-5 pt-4">
+        @RenderBody()
+    </main>
+    <!------------------------[Main Section End]--------------------------->
+
+    <partial name="Partial/Toastr/Notification" />
+
+    <!--------------------------[Bootstrap JS]----------------------------->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-------------------------[Fontawesome JS]---------------------------->
+    <script src="~/lib/fontawesome-pro/js/all.js"></script>
+
+    <!---------------------------[Custom JS]------------------------------->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

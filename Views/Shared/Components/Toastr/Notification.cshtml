@@ -1,0 +1,44 @@
+﻿@using Newtonsoft.Json
+@using PharmaStore.Modules.Models.Toastr;
+@if (TempData["messages"] != null)
+{
+    <script src="~/config/toastr/toastr.config.js"></script>
+    List<Toastr>? messages = JsonConvert.DeserializeObject<List<Toastr>>(TempData["messages"].ToString());
+    if (messages != null)
+    {
+        foreach (var message in messages)
+        {
+            switch (message.messageType)
+            {
+                case (MessageType.Success):
+                    {
+                        <script>
+                            toastr.success("@message.message", "@message.title");
+                        </script>
+                        break;
+                    }
+                case (MessageType.Info):
+                    {
+                        <script>
+                            toastr.info("@message.message", "@message.title")
+                        </script>
+                        break;
+                    }
+                case (MessageType.Warning):
+                    {
+                        <script>
+                            toastr.warning("@message.message", "@message.title")
+                        </script>
+                        break;
+                    }
+                case (MessageType.Error):
+                    {
+                        <script>
+                            toastr.error("@message.message", "@message.title")
+                        </script>
+                        break;
+                    }
+            }
+        }
+    }
+}

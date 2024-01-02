@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PharmaStore.Data.Entities.Manufacturer">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAIAAAEAAAABAAAABAAAAAA=</HashCode>
+      <FileName>Data\Entities\Manufacturer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PharmaStore.Data.Entities.Medicine">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAoQAAAACAACAgAAIAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\Medicine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PharmaStore.Data.Entities.MedicineCategory">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Entities\MedicineCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PharmaStore.Data.Entities.Order">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAAAAAAAAACAAARAAAAAAiAgAAAAAAAAAAIIAAAAAA=</HashCode>
+      <FileName>Data\Entities\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PharmaStore.Data.Entities.Stock">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAACQIIAAAAAAAIAAAAAAAAAEAAAIAAAgCAA=</HashCode>
+      <FileName>Data\Entities\Stock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PharmaStore.Data.Entities.Supplier">
+    <Position X="6.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAKAAAAAgAIA=</HashCode>
+      <FileName>Data\Entities\Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PharmaStore.Data.Entities.OrderStatus">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAIAAAAAAABAIAAAAAA=</HashCode>
+      <FileName>Data\Entities\OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

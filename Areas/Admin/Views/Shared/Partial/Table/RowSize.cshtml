@@ -1,0 +1,14 @@
+﻿@model RowSizeViewModel
+<div class="col-4 col-md-2 col-xl-1 text-end">
+    <div class="dropdown">
+        <button class="btn text-dark dropdown-toggle m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+            <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end">
+            <a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pagesize="5" class="nav-link px-3 @(Model.PageSize == 5 ?"sidebar-link disabled":"dropdown-item")">5 @(Model.PageSize == 5 ? Html.Raw("<span class='ms-auto'><span class='right-icon'><i class='fa fa-check'></i></span></span>") : "")</a>
+            <a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pagesize="10" class="nav-link px-3 @(Model.PageSize == 10 ?"sidebar-link disabled":"dropdown-item")">10 @(Model.PageSize == 10 ? Html.Raw("<span class='ms-auto'><span class='right-icon'><i class='fa fa-check'></i></span></span>") : "")</a>
+            <a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pagesize="25" class="nav-link px-3 @(Model.PageSize == 25 ?"sidebar-link disabled":"dropdown-item")">25 @(Model.PageSize == 25 ? Html.Raw("<span class='ms-auto'><span class='right-icon'><i class='fa fa-check'></i></span></span>") : "")</a>
+        </div>
+    </div>
+</div>

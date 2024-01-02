@@ -1,0 +1,57 @@
+﻿@model ManufacturerDto;
+@{
+    ViewData["Title"] = "Manufacturer";
+}
+
+<div class="container-fluid">
+    <!---------------------------------------------[Main Content Start]---------------------------------------------->
+    <div class="card border-0 shadow components-section">
+        <div class="card-body">
+            <h2 class="h5 mb-4">Manufacturer Info</h2>
+            <form method="POST" asp-controller="manufacturer" asp-action="edit" asp-route-search="@ViewBag.Search" asp-route-pageindex="@ViewBag.PageIndex" asp-route-pagesize="@ViewBag.PageSize" asp-area="Admin">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="ManufacturerId" type="hidden">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="name">Name</label><span style="color:red">*</span>
+                            <span asp-validation-for="ManufacturerName" class="text-danger"></span>
+                            <input asp-for="ManufacturerName" class="form-control" id="name" type="text" placeholder="Supplier Name">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="address">Address</label><span style="color:red">*</span>
+                            <span asp-validation-for="ManufacturerAddress" class="text-danger"></span>
+                            <input asp-for="ManufacturerAddress" class="form-control" id="address" type="text" placeholder="Address">
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="email">Email</label>
+                            <span asp-validation-for="ManufacturerEmail" class="text-danger"></span>
+                            <input asp-for="ManufacturerEmail" class="form-control" id="email" type="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="phone">Phone</label>
+                            <span asp-validation-for="ManufacturerPhone" class="text-danger"></span>
+                            <input asp-for="ManufacturerPhone" class="form-control" id="phone" type="tel" placeholder="Phone">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Save
+                </button>
+                <hr />
+                <p><b>Note:</b> <span style="color:red; font-size: 17px;">*</span> Fields are mandatory.</p>
+            </form>
+        </div>
+    </div>
+    <!----------------------------------------------[Main Content End]----------------------------------------------->
+    <br>
+    <partial name="Partial/Component/Footer" />
+</div>

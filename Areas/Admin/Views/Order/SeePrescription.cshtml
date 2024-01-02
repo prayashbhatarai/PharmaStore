@@ -1,0 +1,14 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Order";
+}
+<div class="container-fluid">
+    <!---------------------------------------------[Main Content Start]---------------------------------------------->
+    <div class="shadow shadow-primary shadow-intensity-lg p-3">
+        <img src="~/uploads/prescription/@Model.Prescription" />
+    </div>
+    <!----------------------------------------------[Main Content End]----------------------------------------------->
+    <br>
+    <partial name="Partial/Component/Footer" />
+</div>
+

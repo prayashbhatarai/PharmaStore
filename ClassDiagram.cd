@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PharmaStore.Modules.Services.Implementation.ManufacturerService" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IACACAAJAAAAAAAAAAAAAIAAAAAAAAAIAQAAAAAAQAg=</HashCode>
+      <FileName>Modules\Services\Implementation\ManufacturerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PharmaStore.Modules.Services.Implementation.MedicineCategoryService" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAYAAAAAAAAIoAAAQAAAAACAAAAAAAAQAAg=</HashCode>
+      <FileName>Modules\Services\Implementation\MedicineCategoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PharmaStore.Modules.Services.Implementation.MedicineService" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IBAEAAAAAAACAQUAAAAAgAAAAAAAAAAAAAAAAAAIYCA=</HashCode>
+      <FileName>Modules\Services\Implementation\MedicineService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PharmaStore.Modules.Services.Implementation.OrderService" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgAAAAAAAAAAABACAAACQEAAAAAEAAABAAAAg=</HashCode>
+      <FileName>Modules\Services\Implementation\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PharmaStore.Modules.Services.Implementation.StockService" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAIAAAAAAAAAAAAIAAAgEAQACAAAAAQAAAAAgAAA=</HashCode>
+      <FileName>Modules\Services\Implementation\StockService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PharmaStore.Modules.Services.Implementation.SupplierService" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAkAgIAAAAAAAIAACAAAAAAEAAAAAAAAAAIAAAQQAAA=</HashCode>
+      <FileName>Modules\Services\Implementation\SupplierService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
